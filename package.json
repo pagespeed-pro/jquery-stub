@@ -1,0 +1,20 @@
+{
+    "name": "@style.tools/jquery-stub",
+    "title": "Style.Tools jQuery Stub",
+    "description": "Style.Tools jQuery Stub - jQuery.ready queue to enable async loading of jQuery.",
+    "version": "0.0.1",
+    "homepage": "https://style.tools/",
+    "copyright": "Copyright (C) 2019 Style.Tools",
+    "author": {
+        "name": "info@style.tools",
+        "email": "info@style.tools",
+        "web": "style.tools"
+    },
+    "private": true,
+    "main": "jquery-stub.js",
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}
