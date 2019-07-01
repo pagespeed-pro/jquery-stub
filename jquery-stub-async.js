@@ -30,12 +30,6 @@
     // setup stub if jQuery is not yet loaded
     if (!win.jQuery) {
 
-        var JQUERY_LOADED; // jQuery loaded flag
-
-        // jQuery.ready queue
-        var JQUERY_READY_QUEUE = [];
-        var JQUERY_NOCONFLICT = false;
-
         // define an alias object 
         var JQUERY_ALIAS_OBJECT = {
             ready: JQUERY_STUB_PUSH_QUEUE,
