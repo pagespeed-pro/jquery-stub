@@ -7,24 +7,25 @@
 
 (function(win, doc){
 
-    var JQUERY_CALLBACK_COUNT = 0;
+    var CALLBACKS = [];
 
     // push to queue
     function JQUERY_STUB_PUSH_QUEUE(handler, fn) {
         fn = ((handler === "ready") ? fn : handler);
 
-        var index = ++JQUERY_CALLBACK_COUNT;
-        var callback_name = 'st_jq_cb_' + index;
-        win[callback_name] = function() {
+        var dependency = 'jquery'; // $async.js( ... {"ref":"jquery"})
+        var index = CALLBACKS.push(function() {
             jQuery(fn);
-        };
-
-        $async.js({
-            src: '', // to save size, $async does not verify src and fails when omitted.
-            inline: callback_name + '();', 
-            dependencies: 'jquery', 
-            exec_timing: 'requestIdleCallback'
         });
+        index--;
+
+        // example: alternative dependency based on script
+        // var fn_text = fn.toString();
+        // if (fn_text.indexOf('.owlCarousel(') !== -1) {
+        //    dep = ['jquery','owl'];
+        // }
+
+        $async.js.dependencies(dep, CALLBACKS[index]);
     };
 
     // setup stub if jQuery is not yet loaded

@@ -4,15 +4,12 @@ Inline `jQuery(function(){})` and `jQuery.ready` queue to enable async loading o
 
 Include `jquery-stub.js` before inline code that uses `jQuery`.
 
-When using [$async](https://github.com/style-tools/async) you can use `jquery-stub-async.js` to simply hook into the jQuery dependency or other dependencies.
+When using [$async](https://github.com/style-tools/async) you can use `jquery-stub-async.js` to hook into the jQuery dependency and/or other dependencies.
 
-You could use `fn.toString()` and a regular expression to selectively set the dependencies.
+You can use `fn.toString()` and a regular expression to selectively set the dependencies. `jquery-stub-async.js` provides an example.
 
 ```javascript
-$async.js({
-    src: '', // to save size, $async does not verify src and fails when omitted.
-    inline: callback_name + '();', 
-    dependencies: 'jquery', 
-    exec_timing: 'requestIdleCallback'
+$async.js.dependencies('jquery', function() {
+	// .. queued jquery code
 });
 ```

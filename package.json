@@ -15,6 +15,11 @@
     "engines": {
         "node": ">=10.0.0"
     },
+    "gcc": [
+        ["jquery-stub.js", "jquery-stub.min.js"],
+        ["jquery-stub-async.js", "jquery-stub-async.min.js"]
+    ],
+    "gcc_browser": true,
     "dependencies": {},
     "devDependencies": {}
 }
