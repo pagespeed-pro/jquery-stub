@@ -13,7 +13,7 @@
     function JQUERY_STUB_PUSH_QUEUE(handler, fn) {
         fn = ((handler === "ready") ? fn : handler);
 
-        var dependency = 'jquery'; // $async.js( ... {"ref":"jquery"})
+        var dependency = 'jquery'; // $async( ... {"ref":"jquery"})
         var index = CALLBACKS.push(function() {
             jQuery(fn);
         });
@@ -25,7 +25,7 @@
         //    dep = ['jquery','owl'];
         // }
 
-        $async.js.dependencies(dep, CALLBACKS[index]);
+        $async.dependencies(dep, CALLBACKS[index]);
     };
 
     // setup stub if jQuery is not yet loaded
